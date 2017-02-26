@@ -1,0 +1,45 @@
+{
+  "name": "playground",
+  "version": "0.0.1",
+  "description": "Playground for beginning to trail. ",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "test": "mocha --compilers js:babel-core/register -w ./src/**/*test.js"
+  },
+  "keywords": [
+    "playground"
+  ],
+  "author": "fedeoo",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "browser-sync": "^2.18.8",
+    "chai": "^3.5.0",
+    "del": "^2.2.2",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-changed": "^2.0.0",
+    "gulp-file": "^0.3.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-util": "^3.0.8",
+    "merge-stream": "^1.0.1",
+    "mocha": "^3.2.0",
+    "require-dir": "^0.3.1",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-stream": "^1.19.0",
+    "run-sequence": "^1.2.2",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "three": "^0.84.0"
+  }
+}
