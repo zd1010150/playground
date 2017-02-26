@@ -20,7 +20,12 @@ gulp.task('rollup', function() {
       cache: cache[entry],
       sourceMap: true,
       plugins: [
-        babel(),
+        babel({
+          babelrc: false,
+          presets: [["es2015", { "modules": false }]],
+          plugins: ['external-helpers'],
+          externalHelpers: true,
+        }),
         nodeResolve({ browser: true, jsnext: true, main: true, module: true }),
         commonjs({
           include: ['node_modules/**', 'src/**'],
