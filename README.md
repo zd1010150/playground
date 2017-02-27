@@ -16,3 +16,8 @@ git clone playground
 cd playground
 npm install
 ```
+
+There are three demos.
+1. find common ancestor in merge base
+2. a demo of loading more with IntersectionObserver
+3. 3D demo based on three.js
