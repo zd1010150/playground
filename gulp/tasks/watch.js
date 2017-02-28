@@ -1,6 +1,6 @@
-var gulp = require('gulp');
-var config = require('../config');
+const gulp = require('gulp');
+const config = require('../config');
 
-gulp.task('watch', ['browserSync'], function() {
+gulp.task('watch', ['browserSync'], () => {
   gulp.watch(config.static.src, ['static']);
 });

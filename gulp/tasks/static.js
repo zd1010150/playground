@@ -1,11 +1,11 @@
-var gulp = require('gulp');
-var changed = require('gulp-changed');
-var browserSync = require('browser-sync');
-var config = require('../config').static;
+const gulp = require('gulp');
+const changed = require('gulp-changed');
+const browserSync = require('browser-sync');
+const config = require('../config').static;
 
-gulp.task('static', function() {
-  return gulp.src(config.src)
+gulp.task('static', () => (
+  gulp.src(config.src)
     .pipe(changed(config.dest))
     .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.stream());
-});
+    .pipe(browserSync.stream())
+));

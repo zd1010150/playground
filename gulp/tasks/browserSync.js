@@ -1,22 +1,24 @@
 /**
  * [browserSync 静态服务器]
  */
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var config = require('../config');
-var webpackConfig = require('../lib/webpack.config');
-var webpack = require('webpack');
+const gulp = require('gulp');
+const browserSync = require('browser-sync');
+const config = require('../config');
+const webpackConfig = require('../lib/webpack.config');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 
-gulp.task('browserSync', function() {
-	const compiler = webpack(webpackConfig)
-	const server = config.browserSync;
-	server.middleware = [
-    require('webpack-dev-middleware')(compiler, {
+gulp.task('browserSync', () => {
+  const compiler = webpack(webpackConfig);
+  const server = config.browserSync;
+  server.middleware = [
+    webpackDevMiddleware(compiler, { //
       stats: 'errors-only',
-      publicPath: '/'
+      publicPath: '/',
     }),
-    require('webpack-hot-middleware')(compiler)
-  ]
+    webpackHotMiddleware(compiler),
+  ];
 
-	browserSync.init(config.browserSync);
+  browserSync.init(config.browserSync);
 });

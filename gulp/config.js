@@ -1,28 +1,28 @@
-var dest = "dist";
-var src = 'src';
+const dest = 'dist';
+const src = 'src';
 
 module.exports = {
-  src: src,
-  dest: dest,
+  src,
+  dest,
   browserSync: {
     port: 3000,
     open: false,
     server: {
-      baseDir: [dest, './']
-    }
+      baseDir: [dest, './'],
+    },
   },
   clean: {
-    dest: [dest + '/**/*']
+    dest: [`${dest}/**/*`],
   },
   static: {
     src: [
-      src + '/**/*',
-      '!' + src + '/**/*.js'
+      `${src}/**/*`,
+      `!${src}/**/*.js`,
     ],
-    dest: dest
+    dest,
   },
   rollup: {
-    src: src + '/**/main.js',
-    dest: dest
-  }
+    src: `${src}/**/main.js`,
+    dest,
+  },
 };

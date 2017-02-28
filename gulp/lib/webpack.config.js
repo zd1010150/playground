@@ -1,29 +1,21 @@
-var config = require('../config')
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
+const glob = require('glob');
+const config = require('../config');
 
-var path = require('path')
-var glob = require("glob");
-
-var entryFiles = glob.sync("**/main.js", { cwd: config.src });
-
-console.log(entryFiles);
-
-function generateEntries (entryFiles, isProd) {
-  return (entryFiles || []).reduce(function(entryObj, entryFile) {
-    entryObj[entryFile] = [
-      './' + entryFile,
-      'webpack-hot-middleware/client?&reload=true'
-    ];
-    return entryObj;
-  }, {});
-};
-
-console.log(path.resolve(config.src));
+const entryFiles = glob.sync('**/main.js', { cwd: config.src });
+const entry = (entryFiles || []).reduce((entryObj, entryFile) => (Object.assign({}, entryObj, {
+  [entryFile]: [
+    `./${entryFile}`,
+    'webpack-hot-middleware/client?&reload=true',
+  ],
+})), {});
+console.log(entry);
 
 module.exports = {
   devtool: 'inline-source-map',
   context: path.resolve(config.src),
-  entry: generateEntries(entryFiles),
+  entry,
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
@@ -37,6 +29,6 @@ module.exports = {
       test: /\.js$/,
       use: ['babel-loader'],
       exclude: /node_modules/,
-    }]
+    }],
   },
 };
