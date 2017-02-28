@@ -9,5 +9,5 @@ requireDir('./gulp/tasks', {
 });
 
 gulp.task('default', function(cb) {
-	gulpSequence('clean', 'static', 'rollup', 'watch', cb);
+	gulpSequence('clean', 'static', 'watch', cb);
 });
