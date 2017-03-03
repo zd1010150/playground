@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "test": "mocha --compilers js:babel-core/register -w ./src/**/*test.js"
+    "test": "mocha --require babel-register -w ./src/**/*test.js"
   },
   "keywords": [
     "playground"

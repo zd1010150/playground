@@ -11,15 +11,40 @@
 
 ## 开始
 
-使用下面命令，clone 本仓库到本地，安装依赖包
+```sh
+npm install yeoman -g
+npm install generator-next-playground -g
+```
+在新文件夹下 执行 `yo next-playground`，会得到下面这些文件：
 
 ```sh
-git clone playground
-cd playground
-npm install
+tree -I node_modules -L 3
+├── dist // server base directory
+├── gulp
+├── src // 一些示例
+│   ├── IntersectionObserver
+│   │   ├── index.html
+│   │   └── main.js // entry point of js
+│   ├── alg
+│   │   └── merge-base
+│   ├── three
+│   │   ├── drinkbird
+│   │   ├── hello
+│   │   └── .DS_Store
+│   └── .DS_Store
+├── .babelrc
+├── .editorconfig
+├── .eslintignore
+├── .eslintrc
+├── .gitignore
+├── README.md
+├── gulpfile.babel.js
+└── package.json
 ```
 
-`npm start` 启动一个静态服务，该服务占用 3000 端口
+
+`npm start` 启动 gulp 任务，该任务会启动一个静态服务默认使用 3000 端口，同时任务会同步 src 目录下除 `.js` 的所有文件。所有的 `*main.js` 会被 bundle 到服务目录下。
+不过若需添加一个页面，新添加的 main.js 不会被 watch，需要重启任务。
 
 `npm test` 启动 mocha 测试，所有 `*test.js` 都会被 watch
 
@@ -30,3 +55,5 @@ npm install
 1. `src/alg/merge-base` 这个例子是实现 merge-base 的查找最优公共祖先算法，所以需要一个测试环境
 2. `src/IntersectionObserver` 基于 IntersectionObserver 做的一个滚动加载 demo
 3. `src/three` `three.js` 的试验场
+
+在项目启动之后，在浏览器访问 `localhost:3000/three/drinkbird/` 可查看 demo
