@@ -6,9 +6,10 @@ module.exports = {
   dest,
   browserSync: {
     port: 3000,
-    open: false,
+    open: true,
     server: {
       baseDir: [dest, './'],
+      directory: true,
     },
   },
   clean: {
