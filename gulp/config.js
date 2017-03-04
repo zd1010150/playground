@@ -22,8 +22,4 @@ module.exports = {
     ],
     dest,
   },
-  rollup: {
-    src: `${src}/**/main.js`,
-    dest,
-  },
 };
