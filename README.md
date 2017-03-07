@@ -12,7 +12,7 @@
 ## 开始
 
 ```sh
-npm install yeoman -g
+npm install yo -g
 npm install generator-next-playground -g
 ```
 在新文件夹下 执行 `yo next-playground`，会得到下面这些文件：
